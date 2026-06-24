@@ -110,7 +110,7 @@
                     style="width:100%; padding:9px; margin-bottom:10px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box; background:white;">
                     <option value="">-- Pilih Jenis Zona --</option>
                     <option value="Permukiman">Permukiman</option>
-                    <option value="Perdagangan">Perdagangan & Jasa</option>
+                    <option value="Perdagangan">Perdagangan dan Jasa</option>
                     <option value="Industri">Industri</option>
                     <option value="Pertanian">Pertanian</option>
                     <option value="RTH">Ruang Terbuka Hijau</option>
@@ -637,7 +637,7 @@
 
         var JENIS_ZONA_LABEL = {
             'Permukiman': 'Permukiman',
-            'Perdagangan': 'Perdagangan & Jasa',
+            'Perdagangan': 'Perdagangan dan Jasa',
             'Industri': 'Industri',
             'Pertanian': 'Pertanian',
             'RTH': 'Ruang Terbuka Hijau',
@@ -1015,7 +1015,7 @@
             }
 
             html += '<div class="legenda-section" style="margin-top:8px; padding-top:8px; border-top:1px solid #eee;">' +
-                '<div class="legenda-section-title">Referensi</div>' +
+                '<div class="legenda-section-title">Batas Administrasi</div>' +
                 '<div class="legenda-item">' +
                 '<div class="legenda-swatch-line" style="background:#e63946; border-top:2px dashed #e63946; height:0;"></div>' +
                 '<span>Batas Kota Padang</span></div>' +

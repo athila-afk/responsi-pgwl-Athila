@@ -3,6 +3,18 @@
 @section('content')
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
+    <style>
+        .card-hover {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: default;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(184, 53, 86, 0.25) !important;
+        }
+    </style>
+
     <div
         style="padding: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; min-height: 100vh; box-sizing: border-box;">
 
@@ -13,7 +25,8 @@
                     <h1
                         style="margin: 0 0 10px 0; font-size: clamp(20px, 2.4vw, 32px); font-weight: 800; letter-spacing: -0.5px; line-height: 1.3; white-space: nowrap;">
                         GeoRanah Minang: Manata Ranah, Manjago Nagari</h1>
-                    <p style="margin: 0; opacity: 0.95; font-size: 16px; font-weight: 500;">👤 Salamaik datang ka Ranah Minang,
+                    <p style="margin: 0; opacity: 0.95; font-size: 16px; font-weight: 500;">👤 Salamaik datang ka Ranah
+                        Minang,
                         {{ auth()->user()->name }}!</p>
                 </div>
 
@@ -31,8 +44,9 @@
 
             <div style="display: flex; flex-direction: column; gap: 25px; width: 100%;">
 
+                <!-- KARTU STATISTIK -->
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
-                    <div
+                    <div class="card-hover"
                         style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 12px #55768C; display: flex; align-items: center; gap: 15px; border-left: 5px solid #B83556;">
                         <div
                             style="background: #fbebed; padding: 10px; border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center;">
@@ -43,7 +57,7 @@
                             <div style="color: #000000; font-size: 12px;">Total Lahan</div>
                         </div>
                     </div>
-                    <div
+                    <div class="card-hover"
                         style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 12px #55768C; display: flex; align-items: center; gap: 15px; border-left: 5px solid #B83556;">
                         <div
                             style="background: #fbebed; padding: 10px; border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center;">
@@ -54,7 +68,7 @@
                             <div style="color: #000000; font-size: 12px;">Total Fasilitas</div>
                         </div>
                     </div>
-                    <div
+                    <div class="card-hover"
                         style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 12px #55768C; display: flex; align-items: center; gap: 15px; border-left: 5px solid #DC97A5;">
                         <div
                             style="background: #fbebed; padding: 10px; border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center;">
@@ -67,21 +81,22 @@
                     </div>
                 </div>
 
-                <div
+                <!-- PETA INTERAKTIF -->
+                <div class="card-hover"
                     style="background: #55768C; border-radius: 14px; box-shadow: 0 4px 15px #55768C; overflow: hidden; width: 100%;">
                     <div style="padding: 15px 20px; border-bottom: 1px solid #fbebed; background: #fbebed;">
                         <h4 style="margin: 0; color: #B83556; font-size: 15px; font-weight: 600;">Peta Interaktif Wilayah
                         </h4>
                     </div>
                     <div id="mini-map" style="height: 320px; width: 100%;"></div>
-
                     <a href="/zona"
                         style="display: block; text-align: center; background: #fbebed; color: #B83556; padding: 14px; text-decoration: none; font-weight: bold; font-size: 14px; transition: background 0.3s;">
                         Buka Peta Penuh & Digitasi ➔
                     </a>
                 </div>
 
-                <div
+                <!-- IDENTITAS PENGEMBANG -->
+                <div class="card-hover"
                     style="background: #fbebed; padding: 20px; border-radius: 14px; box-shadow: 0 4px 15px #55768C; display: flex; align-items: center; gap: 18px; width: 100%; box-sizing: border-box;">
                     <img src="{{ asset('image/Athila.jpg') }}" alt="Foto Profil"
                         style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
@@ -89,7 +104,7 @@
                         <h4 style="margin: 0 0 6px 0; color: #B83556; font-size: 15px; font-weight: bold;">Identitas
                             Pengembang</h4>
                         <div style="font-size: 15px; font-weight: bold; color: #000000;">Nama : Athila</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #000000 ; margin-top: 2px;">NIM :
+                        <div style="font-size: 15px; font-weight: bold; color: #000000; margin-top: 2px;">NIM :
                             24/544641/SV/25487</div>
                         <div style="font-size: 15px; font-weight: bold; color: #000000;">Prodi : Sistem Informasi Geografis
                         </div>
@@ -100,7 +115,8 @@
 
             <div style="display: flex; flex-direction: column; gap: 25px; width: 100%;">
 
-                <div
+                <!-- PROPORSI CHART -->
+                <div class="card-hover"
                     style="background: #fbebed; padding: 20px; border-radius: 14px; box-shadow: 0 4px 15px #55768C; width: 100%; box-sizing: border-box;">
                     <h4 style="margin: 0 0 15px 0; color: #B83556; font-size: 15px; font-weight: 600;">📊 Proporsi Data
                         Spasial Terdigitasi</h4>
@@ -110,12 +126,13 @@
                     <div style="border-top: 1px solid #eee; padding-top: 15px; text-align: center;">
                         <div style="font-size: 24px; font-weight: bold; color: #B83556;">
                             {{ $totalZona + $totalPoint + $totalPolyline }}</div>
-                        <div style="font-size: 12px; font-weight: bold ;color: #55768C;">Total Keseluruhan Aset Objek
+                        <div style="font-size: 12px; font-weight: bold; color: #55768C;">Total Keseluruhan Aset Objek
                             Spasial</div>
                     </div>
                 </div>
 
-                <div
+                <!-- TENTANG APLIKASI -->
+                <div class="card-hover"
                     style="background: #fbebed; padding: 20px; border-radius: 14px; box-shadow: 0 4px 15px #55768C; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; width: 100%;">
                     <div>
                         <h4 style="margin: 0 0 10px 0; color: #B83556; font-size: 15px; font-weight: 600;">📋 Tentang
@@ -153,13 +170,10 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-        // 1. DIGITAL CLOCK & LIVE DATE SCRIPT (100% OTOMATIS)
         function startLiveDateTime() {
             const dateElement = document.getElementById('live-date');
             const clockElement = document.getElementById('live-clock');
-
             if (!dateElement || !clockElement) return;
-
             setInterval(() => {
                 const now = new Date();
                 const opsiTanggal = {
@@ -168,7 +182,6 @@
                     year: 'numeric'
                 };
                 dateElement.innerText = now.toLocaleDateString('id-ID', opsiTanggal);
-
                 const hours = String(now.getHours()).padStart(2, '0');
                 const minutes = String(now.getMinutes()).padStart(2, '0');
                 const seconds = String(now.getSeconds()).padStart(2, '0');
@@ -176,12 +189,10 @@
             }, 1000);
         }
 
-        // 2. APEXCHARTS CONFIGURATION
         function initDonutChart() {
             const totalPolygon = parseInt("{{ $totalZona }}") || 0;
             const totalPoint = parseInt("{{ $totalPoint }}") || 0;
             const totalPolyline = parseInt("{{ $totalPolyline }}") || 0;
-
             const options = {
                 chart: {
                     type: 'donut',
@@ -201,12 +212,10 @@
                     }
                 }
             };
-
             const chart = new ApexCharts(document.querySelector("#spatial-donut-chart"), options);
             chart.render();
         }
 
-        // 3. LEAFLET MINI PETA INITIALIZATION
         function initMiniMap() {
             const map = L.map('mini-map', {
                 zoomControl: true,
@@ -219,7 +228,6 @@
 
             const groupBounds = L.featureGroup();
 
-            // Fetch Polygon
             fetch('/api/zona/geojson')
                 .then(res => res.json())
                 .then(data => {
@@ -236,7 +244,6 @@
                     }
                 }).catch(e => console.log(e));
 
-            // Fetch Point
             fetch('/api/point/geojson')
                 .then(res => res.json())
                 .then(data => {
@@ -251,7 +258,6 @@
                     }
                 }).catch(e => console.log(e));
 
-            // Fetch Polyline
             fetch('/api/polyline/geojson')
                 .then(res => res.json())
                 .then(data => {
@@ -269,7 +275,6 @@
                 }).catch(e => console.log(e));
         }
 
-        // Jalankan seluruh fungsi bersamaan
         document.addEventListener('DOMContentLoaded', () => {
             startLiveDateTime();
             initDonutChart();
